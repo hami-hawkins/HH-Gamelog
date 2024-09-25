@@ -10,7 +10,7 @@ function App() {
       </header>
       <section className="main">
         <Gamelog />
-        <AddGame />
+        {/* <AddGame /> */}
         <DeleteGame />
       </section>
     </>
