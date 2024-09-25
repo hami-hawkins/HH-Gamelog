@@ -57,3 +57,9 @@ describe('getGameById(id)', () => {
     })
   })
 })
+
+// TODO: addGame()
+
+// TODO: deleteGame()
+
+// TODO: rateGame()
