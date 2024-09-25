@@ -35,6 +35,18 @@ function Gamelog() {
             <table border="1">
               <thead>
                 <tr>
+                  <th>Start Date</th>
+                  <th>Finish Date</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>{gamelog.startDate}</td>
+                <td>{gamelog.finishDate}</td>
+              </tr>
+            </table>
+            <table border="1">
+              <thead>
+                <tr>
                   <th>Estimated Playtime</th>
                   <th>Actual Playtime</th>
                 </tr>
