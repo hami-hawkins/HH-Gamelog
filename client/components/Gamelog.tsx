@@ -78,7 +78,7 @@ function Gamelog() {
                   <td>{gamelog.graphicsRating}</td>
                   <td>{gamelog.performanceRating}</td>
                   <td>{gamelog.funRating}</td>
-                  <td>Yet to implement</td>
+                  <td>{gamelog.totalRating}</td>
                 </tr>
               </thead>
             </table>

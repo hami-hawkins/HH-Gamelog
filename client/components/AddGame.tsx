@@ -60,6 +60,7 @@ function AddGame() {
       funRating: null,
       finalRating: null,
       finalThoughts: null,
+      totalRating: null,
     })
   }
 

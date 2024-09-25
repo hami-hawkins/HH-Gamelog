@@ -15,4 +15,5 @@ export interface Game {
   funRating: number | null
   finalRating: number | null
   finalThoughts: string | null
+  totalRating: number | null
 }

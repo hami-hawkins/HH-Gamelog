@@ -22,6 +22,9 @@ export function getAllGames(): Promise<Game[]> {
     'fun_rating as funRating',
     'final_rating as finalRating',
     'final_thoughts as finalThoughts',
+    db.raw(
+      'gameplay_rating + story_rating + graphics_rating + performance_rating + fun_rating as totalRating',
+    ),
   )
 }
 
