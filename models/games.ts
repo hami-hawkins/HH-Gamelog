@@ -8,11 +8,11 @@ export interface Game {
   finishDate: string | null
   playtimeEstimate: string | null
   playtimeFinal: string | null
-  gameplayRating: number
-  storyRating: number
-  graphicsRating: number
-  performanceRating: number
-  funRating: number
-  finalRating: number
+  gameplayRating: number | null
+  storyRating: number | null
+  graphicsRating: number | null
+  performanceRating: number | null
+  funRating: number | null
+  finalRating: number | null
   finalThoughts: string | null
 }

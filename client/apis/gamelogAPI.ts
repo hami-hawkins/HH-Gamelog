@@ -25,12 +25,27 @@ export async function deleteGame(id: number) {
   return
 }
 
-//update a game as owned
-export async function ownedGame(id: number) {
-  await request.patch(`/api/v1/gamelog/owned/${id}`)
-}
-
-//update a game as sold (no longer owned)
-export async function soldGame(id: number) {
-  await request.patch(`/api/v1/gamelog/sold/${id}`)
+//update a games ratings
+export async function rateGame(
+  id: number,
+  playtimeFinal: string | null,
+  gameplayRating: number,
+  storyRating: number,
+  graphicsRating: number,
+  performanceRating: number,
+  funRating: number,
+  finalRating: number,
+  finalThoughts: string | null,
+) {
+  await request.patch(`/api/v1/gamelog/rate/${id}`).send({
+    playtimeFinal,
+    gameplayRating,
+    storyRating,
+    graphicsRating,
+    performanceRating,
+    funRating,
+    finalRating,
+    finalThoughts,
+  })
+  return
 }

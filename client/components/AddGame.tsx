@@ -5,14 +5,24 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Game } from '../../models/games'
 
 function AddGame() {
-  const [{ game, platform, release_date, owned, clocked }, setFormValues] =
-    useState({
-      game: '',
-      platform: '',
-      release_date: '',
-      owned: false,
-      clocked: false,
-    })
+  const [
+    {
+      game,
+      playedBefore,
+      clockedBefore,
+      platform,
+      startDate,
+      playtimeEstimate,
+    },
+    setFormValues,
+  ] = useState({
+    game: '',
+    playedBefore: false,
+    clockedBefore: false,
+    platform: '',
+    startDate: '',
+    playtimeEstimate: '',
+  })
 
   const queryClient = useQueryClient()
 
@@ -43,10 +53,20 @@ function AddGame() {
     evt.preventDefault()
     await addMutation.mutate({
       game,
+      playedBefore,
+      clockedBefore,
       platform,
-      release_date,
-      owned,
-      clocked,
+      startDate,
+      finishDate: null,
+      playtimeEstimate,
+      playtimeFinal: null,
+      gameplayRating: null,
+      storyRating: null,
+      graphicsRating: null,
+      performanceRating: null,
+      funRating: null,
+      finalRating: null,
+      finalThoughts: null,
     })
   }
 
@@ -55,7 +75,7 @@ function AddGame() {
       <h1>Add a new Game</h1>
       <form className="form" onSubmit={onSubmit} aria-label="Add a Game">
         <div>
-          <label htmlFor="game">Game</label>
+          <label htmlFor="game">Game: </label>
           <input
             className="form_input"
             type="text"
@@ -66,7 +86,29 @@ function AddGame() {
           />
         </div>
         <div>
-          <label htmlFor="platform">Platform</label>
+          <label htmlFor="played_before">Played before? </label>
+          <input
+            className="form_input"
+            type="checkbox"
+            name="played_before"
+            id="played_before"
+            checked={playedBefore}
+            onChange={onCheckBoxChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="clocked_before">Clocked before? </label>
+          <input
+            className="form_input"
+            type="checkbox"
+            name="clocked_before"
+            id="clocked_before"
+            checked={clockedBefore}
+            onChange={onCheckBoxChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="platform">Platform: </label>
           <input
             className="form_input"
             type="text"
@@ -77,36 +119,25 @@ function AddGame() {
           />
         </div>
         <div>
-          <label htmlFor="release_date">Release Date</label>
+          <label htmlFor="start_date">Start Date: </label>
           <input
             className="form_input"
             type="text"
-            name="release_date"
-            id="release_date"
-            value={release_date}
+            name="startDate"
+            id="start_date"
+            value={startDate}
             onChange={onChange}
           />
         </div>
         <div>
-          <label htmlFor="owned">Owned</label>
+          <label htmlFor="playtime_estimate">Estimated Playtime:</label>
           <input
             className="form_input"
-            type="checkbox"
-            name="owned"
-            id="owned"
-            checked={owned}
-            onChange={onCheckBoxChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="clocked">Clocked</label>
-          <input
-            className="form_input"
-            type="checkbox"
-            name="clocked"
-            id="clocked"
-            checked={clocked}
-            onChange={onCheckBoxChange}
+            type="text"
+            name="playtimeEstimate"
+            id="playtime_estimate"
+            value={playtimeEstimate}
+            onChange={onChange}
           />
         </div>
         <button type="submit" className="button-primary">

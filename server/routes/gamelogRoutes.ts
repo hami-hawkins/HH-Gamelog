@@ -54,29 +54,49 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
-//Update a game as owned
-//UPDATE '/api/v1/gamelog/owned/:id'
-router.patch('/owned/:id', async (req, res) => {
+//Update a game rating
+//UPDATE '/api/v1/gamelog/:id'
+router.patch('/rate/:id', async (req, res) => {
   const id = Number(req.params.id)
-  try {
-    await db.ownedGame(id)
-    res.sendStatus(201)
-  } catch (error) {
-    console.error('Could not update game: ', error)
-    res.status(500)
-  }
-})
+  const {
+    playtimeFinal,
+    gameplayRating,
+    storyRating,
+    graphicsRating,
+    performanceRating,
+    funRating,
+    finalRating,
+    finalThoughts,
+  } = req.body
 
-//Update a game as sold (no longer owned)
-//UPDATE '/api/v1/gamelog/sold/:id'
-router.patch('/sold/:id', async (req, res) => {
-  const id = Number(req.params.id)
+  if (
+    (gameplayRating !== null && (gameplayRating < 0 || gameplayRating > 10)) ||
+    (storyRating !== null && (storyRating < 0 || storyRating > 10)) ||
+    (graphicsRating !== null && (graphicsRating < 0 || graphicsRating > 10)) ||
+    (performanceRating !== null &&
+      (performanceRating < 0 || performanceRating > 10)) ||
+    (funRating !== null && (funRating < 0 || funRating > 10)) ||
+    (finalRating !== null && (finalRating < 0 || finalRating > 5))
+  ) {
+    return res.status(400).json({ message: 'Invalid rating' })
+  }
+
   try {
-    await db.soldGame(id)
+    await db.rateGame(
+      id,
+      playtimeFinal,
+      gameplayRating,
+      storyRating,
+      graphicsRating,
+      performanceRating,
+      funRating,
+      finalRating,
+      finalThoughts,
+    )
     res.sendStatus(201)
   } catch (error) {
-    console.error('Could not update game: ', error)
-    res.status(500)
+    console.error('Could not update game ratings: ', error)
+    res.status(500).json({ message: 'Failed to update game rating' })
   }
 })
 

@@ -52,7 +52,23 @@ export function getGameById(id: number): Promise<Game> {
 
 //add a new game
 export function addGame(newGame: Game): Promise<Game> {
-  return db('gamelog').insert(newGame)
+  return db('gamelog').insert({
+    game: newGame.game,
+    played_before: newGame.playedBefore,
+    clocked_before: newGame.clockedBefore,
+    platform: newGame.platform,
+    start_date: newGame.startDate,
+    finish_date: newGame.finishDate,
+    playtime_estimate: newGame.playtimeEstimate,
+    playtime_final: newGame.playtimeFinal,
+    gameplay_rating: newGame.gameplayRating,
+    story_rating: newGame.storyRating,
+    graphics_rating: newGame.graphicsRating,
+    performance_rating: newGame.performanceRating,
+    fun_rating: newGame.funRating,
+    final_rating: newGame.finalRating,
+    final_thoughts: newGame.finalThoughts,
+  })
 }
 
 //delete a game
@@ -60,12 +76,26 @@ export function deleteGame(id: number) {
   return db('gamelog').where({ id }).delete()
 }
 
-//update a game as owned
-export function ownedGame(id: number) {
-  return db('gamelog').where({ id }).update('owned', true)
-}
-
-//update a game when sold (no longer owned)
-export function soldGame(id: number) {
-  return db('gamelog').where({ id }).update('owned', false)
+//update a game rating
+export function rateGame(
+  id: number,
+  playtimeFinal: string | null,
+  gameplayRating: number | null,
+  storyRating: number | null,
+  graphicsRating: number | null,
+  performanceRating: number | null,
+  funRating: number | null,
+  finalRating: number | null,
+  finalThoughts: string | null,
+) {
+  return db('gamelog').where({ id }).update({
+    playtime_final: playtimeFinal,
+    gameplay_rating: gameplayRating,
+    story_rating: storyRating,
+    graphics_rating: graphicsRating,
+    performance_rating: performanceRating,
+    fun_rating: funRating,
+    final_rating: finalRating,
+    final_thoughts: finalThoughts,
+  })
 }

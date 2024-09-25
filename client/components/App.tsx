@@ -1,4 +1,4 @@
-// import AddGame from './AddGame'
+import AddGame from './AddGame'
 import DeleteGame from './DeleteGame'
 import Gamelog from './Gamelog'
 
@@ -10,7 +10,7 @@ function App() {
       </header>
       <section className="main">
         <Gamelog />
-        {/* <AddGame /> */}
+        <AddGame />
         <DeleteGame />
       </section>
     </>
