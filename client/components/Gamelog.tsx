@@ -32,7 +32,8 @@ function Gamelog() {
             <p>{gamelog.playedBefore ? 'Yes' : 'No'}</p>
             <h4>Previously clocked: </h4>{' '}
             <p>{gamelog.clockedBefore ? 'Yes' : 'No'}</p>
-            <table border="1">
+            {/* TODO: move this to the css file? */}
+            <table style={{ border: '1px solid black' }}>
               <thead>
                 <tr>
                   <th>Start Date</th>
@@ -44,7 +45,8 @@ function Gamelog() {
                 <td>{gamelog.finishDate}</td>
               </tr>
             </table>
-            <table border="1">
+            {/* TODO: move this to the css file? */}
+            <table style={{ border: '1px solid black' }}>
               <thead>
                 <tr>
                   <th>Estimated Playtime</th>
@@ -59,7 +61,8 @@ function Gamelog() {
           </div>
           <div>
             <h3>Review:</h3>
-            <table border="1">
+            {/* TODO: move this to the css file? */}
+            <table style={{ border: '1px solid black' }}>
               <thead>
                 <tr>
                   <th>Gameplay</th>
