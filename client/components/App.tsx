@@ -5,7 +5,7 @@ import RateGame from './RateGame'
 
 function App() {
   return (
-    <>
+    <div>
       <header className="header">
         <h1>My Gamelog</h1>
       </header>
@@ -15,7 +15,7 @@ function App() {
         <RateGame />
         <DeleteGame />
       </section>
-    </>
+    </div>
   )
 }
 
