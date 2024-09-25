@@ -56,9 +56,9 @@ router.delete('/:id', async (req, res) => {
 
 //Update a game rating
 //UPDATE '/api/v1/gamelog/:id'
-router.patch('/rate/:id', async (req, res) => {
-  const id = Number(req.params.id)
+router.patch('/rate', async (req, res) => {
   const {
+    gameName,
     playtimeFinal,
     gameplayRating,
     storyRating,
@@ -69,6 +69,7 @@ router.patch('/rate/:id', async (req, res) => {
     finalThoughts,
   } = req.body
 
+  // Validate ratings
   if (
     (gameplayRating !== null && (gameplayRating < 0 || gameplayRating > 10)) ||
     (storyRating !== null && (storyRating < 0 || storyRating > 10)) ||
@@ -83,7 +84,7 @@ router.patch('/rate/:id', async (req, res) => {
 
   try {
     await db.rateGame(
-      id,
+      gameName,
       playtimeFinal,
       gameplayRating,
       storyRating,

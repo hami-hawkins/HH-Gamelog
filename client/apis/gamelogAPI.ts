@@ -27,7 +27,7 @@ export async function deleteGame(id: number) {
 
 //update a games ratings
 export async function rateGame(
-  id: number,
+  gameName: string,
   playtimeFinal: string | null,
   gameplayRating: number,
   storyRating: number,
@@ -37,7 +37,8 @@ export async function rateGame(
   finalRating: number,
   finalThoughts: string | null,
 ) {
-  await request.patch(`/api/v1/gamelog/rate/${id}`).send({
+  await request.patch(`/api/v1/gamelog/rate`).send({
+    gameName,
     playtimeFinal,
     gameplayRating,
     storyRating,

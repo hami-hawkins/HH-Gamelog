@@ -1,6 +1,7 @@
 import AddGame from './AddGame'
 import DeleteGame from './DeleteGame'
 import Gamelog from './Gamelog'
+import RateGame from './RateGame'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <section className="main">
         <Gamelog />
         <AddGame />
+        <RateGame />
         <DeleteGame />
       </section>
     </>

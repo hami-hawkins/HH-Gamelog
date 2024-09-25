@@ -77,8 +77,8 @@ export function deleteGame(id: number) {
 }
 
 //update a game rating
-export function rateGame(
-  id: number,
+export async function rateGame(
+  gameName: string,
   playtimeFinal: string | null,
   gameplayRating: number | null,
   storyRating: number | null,
@@ -88,7 +88,13 @@ export function rateGame(
   finalRating: number | null,
   finalThoughts: string | null,
 ) {
-  return db('gamelog').where({ id }).update({
+  const game = await db('gamelog').where('game', gameName).first()
+
+  if (!game) {
+    throw new Error('Game not found')
+  }
+
+  return db('gamelog').where({ id: game.id }).update({
     playtime_final: playtimeFinal,
     gameplay_rating: gameplayRating,
     story_rating: storyRating,

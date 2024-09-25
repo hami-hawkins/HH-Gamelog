@@ -5,24 +5,16 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Game } from '../../models/games'
 
 function AddGame() {
-  const [
-    {
-      game,
-      playedBefore,
-      clockedBefore,
-      platform,
-      startDate,
-      playtimeEstimate,
-    },
-    setFormValues,
-  ] = useState({
+  const initialFormValues = {
     game: '',
     playedBefore: false,
     clockedBefore: false,
     platform: '',
     startDate: '',
     playtimeEstimate: '',
-  })
+  }
+
+  const [formValues, setFormValues] = useState(initialFormValues)
 
   const queryClient = useQueryClient()
 
@@ -30,6 +22,7 @@ function AddGame() {
     mutationFn: async (newGame: Game) => addNewGame(newGame),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['gamelog'] })
+      setFormValues(initialFormValues)
     },
   })
 
@@ -52,13 +45,13 @@ function AddGame() {
   const onSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
     await addMutation.mutate({
-      game,
-      playedBefore,
-      clockedBefore,
-      platform,
-      startDate,
+      game: formValues.game,
+      playedBefore: formValues.playedBefore,
+      clockedBefore: formValues.clockedBefore,
+      platform: formValues.platform,
+      startDate: formValues.startDate,
       finishDate: null,
-      playtimeEstimate,
+      playtimeEstimate: formValues.playtimeEstimate,
       playtimeFinal: null,
       gameplayRating: null,
       storyRating: null,
@@ -81,7 +74,7 @@ function AddGame() {
             type="text"
             name="game"
             id="game"
-            value={game}
+            value={formValues.game}
             onChange={onChange}
           />
         </div>
@@ -90,9 +83,9 @@ function AddGame() {
           <input
             className="form_input"
             type="checkbox"
-            name="played_before"
+            name="playedBefore"
             id="played_before"
-            checked={playedBefore}
+            checked={formValues.playedBefore}
             onChange={onCheckBoxChange}
           />
         </div>
@@ -101,9 +94,9 @@ function AddGame() {
           <input
             className="form_input"
             type="checkbox"
-            name="clocked_before"
+            name="clockedBefore"
             id="clocked_before"
-            checked={clockedBefore}
+            checked={formValues.clockedBefore}
             onChange={onCheckBoxChange}
           />
         </div>
@@ -114,7 +107,7 @@ function AddGame() {
             type="text"
             name="platform"
             id="platform"
-            value={platform}
+            value={formValues.platform}
             onChange={onChange}
           />
         </div>
@@ -125,7 +118,7 @@ function AddGame() {
             type="text"
             name="startDate"
             id="start_date"
-            value={startDate}
+            value={formValues.startDate}
             onChange={onChange}
           />
         </div>
@@ -136,7 +129,7 @@ function AddGame() {
             type="text"
             name="playtimeEstimate"
             id="playtime_estimate"
-            value={playtimeEstimate}
+            value={formValues.playtimeEstimate}
             onChange={onChange}
           />
         </div>
