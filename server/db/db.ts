@@ -8,10 +8,20 @@ export function getAllGames(): Promise<Game[]> {
   return db('gamelog').select(
     'id',
     'game',
+    'played_before as playedBefore',
+    'clocked_before as clockedBefore',
     'platform',
-    'release_date as releaseDate',
-    'owned',
-    'clocked',
+    'start_date as startDate',
+    'finish_date as finishDate',
+    'playtime_estimate as playtimeEstimate',
+    'playtime_final as playtimeFinal',
+    'gameplay_rating as gameplayRating',
+    'story_rating as storyRating',
+    'graphics_rating as graphicsRating',
+    'performance_rating as performanceRating',
+    'fun_rating as funRating',
+    'final_rating as finalRating',
+    'final_thoughts as finalThoughts',
   )
 }
 
@@ -22,10 +32,20 @@ export function getGameById(id: number): Promise<Game> {
     .select(
       'id',
       'game',
+      'played_before as playedBefore',
+      'clocked_before as clockedBefore',
       'platform',
-      'release_date as releaseDate',
-      'owned',
-      'clocked',
+      'start_date as startDate',
+      'finish_date as finishDate',
+      'playtime_estimate as playtimeEstimate',
+      'playtime_final as playtimeFinal',
+      'gameplay_rating as gameplayRating',
+      'story_rating as storyRating',
+      'graphics_rating as graphicsRating',
+      'performance_rating as performanceRating',
+      'fun_rating as funRating',
+      'final_rating as finalRating',
+      'final_thoughts as finalThoughts',
     )
     .first()
 }

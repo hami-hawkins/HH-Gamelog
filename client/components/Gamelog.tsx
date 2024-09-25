@@ -23,8 +23,7 @@ function Gamelog() {
       {data.map((gamelog) => (
         <p key={gamelog.id}>
           ID: {gamelog.id} | Name: {gamelog.game} | Platform: {gamelog.platform}{' '}
-          | Release Date: {gamelog.releaseDate} | Owned: {gamelog.owned} |
-          Clocked: {gamelog.clocked}
+          | Rating: {gamelog.finalRating} | Reflections: {gamelog.finalThoughts}
         </p>
       ))}
     </>
