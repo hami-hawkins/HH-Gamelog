@@ -22,16 +22,20 @@ function Gamelog() {
       <h1>Here are some games</h1>
       {data.map((gamelog) => (
         <div key={gamelog.id}>
-          <div>
-            <h2>{gamelog.game}</h2>
-            <h4>GameID:</h4> <p>{gamelog.id}</p>
-            <h4>Played on:</h4> <p>{gamelog.platform}</p>
+          <div className="base-info">
+            <h2 className="bar-spacing">{gamelog.game}</h2>
+            <h4 className="bar-spacing">GameID:</h4>{' '}
+            <p className="bar-spacing">{gamelog.id}</p>
+            <h4 className="bar-spacing">Played on:</h4>{' '}
+            <p className="bar-spacing">{gamelog.platform}</p>
+            <h4 className="bar-spacing">Previously played: </h4>{' '}
+            <p className="bar-spacing">{gamelog.playedBefore ? 'Yes' : 'No'}</p>
+            <h4 className="bar-spacing">Previously clocked: </h4>{' '}
+            <p className="bar-spacing">
+              {gamelog.clockedBefore ? 'Yes' : 'No'}
+            </p>
           </div>
-          <div>
-            <h4>Previously played: </h4>{' '}
-            <p>{gamelog.playedBefore ? 'Yes' : 'No'}</p>
-            <h4>Previously clocked: </h4>{' '}
-            <p>{gamelog.clockedBefore ? 'Yes' : 'No'}</p>
+          <div className="base-info">
             {/* TODO: move this to the css file? */}
             <table style={{ border: '1px solid black' }}>
               <thead>

@@ -4,9 +4,20 @@ body {
   left: 0;
   margin: 0;
   padding: 20px;
+  color: lightgray;
+  background-color: black;
   font:
     14px 'Helvetica Neue',
     Helvetica,
     Arial,
     sans-serif;
+}
+
+.base-info {
+  display: inline-flex;
+  margin: 10px;
+}
+
+.bar-spacing {
+  padding: 0 10px;
 }
