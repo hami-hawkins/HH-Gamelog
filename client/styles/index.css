@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   position: absolute;
   top: 0;
@@ -13,11 +14,120 @@ body {
     sans-serif;
 }
 
+/* Layout Helpers */
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.separator {
+  height: 10px;
+  background-color: rgb(117, 0, 0);
+  border: none;
+  margin: 50px 0px;
+}
+
+.mini-separator {
+  height: 2px;
+  background-color: gray;
+  border: none;
+  margin: 20px;
+}
+
+/* Game Info Layout Styles */
+.game-info-container {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.game-title {
+  flex: 0 0 auto;
+  padding-right: 20px;
+}
+
+.game-details {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .base-info {
-  display: inline-flex;
-  margin: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.info-label {
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .bar-spacing {
   padding: 0 10px;
+}
+
+/* Table Styles */
+.table-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: rgb(175, 0, 0);
+}
+
+/* Centered Table Specific Styles */
+.centered-table {
+  border-collapse: collapse;
+}
+
+.centered-table th,
+.centered-table td {
+  text-align: center;
+}
+
+.reflection {
+  text-align: center;
+  margin: 10px 20vw;
+  font-size: 16px;
+}
+
+.spacing {
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+}
+
+h3,
+h4 {
+  text-decoration: underline;
+  color: rgb(175, 0, 0);
+}
+
+h2 {
+  font-size: 40px;
+  color: rgb(216, 0, 0);
+  text-decoration: underline;
 }

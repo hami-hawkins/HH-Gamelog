@@ -22,76 +22,96 @@ function Gamelog() {
       <h1>Here are some games</h1>
       {data.map((gamelog) => (
         <div key={gamelog.id}>
-          <div className="base-info">
-            <h2 className="bar-spacing">{gamelog.game}</h2>
-            <h4 className="bar-spacing">GameID:</h4>{' '}
-            <p className="bar-spacing">{gamelog.id}</p>
-            <h4 className="bar-spacing">Played on:</h4>{' '}
-            <p className="bar-spacing">{gamelog.platform}</p>
-            <h4 className="bar-spacing">Previously played: </h4>{' '}
-            <p className="bar-spacing">{gamelog.playedBefore ? 'Yes' : 'No'}</p>
-            <h4 className="bar-spacing">Previously clocked: </h4>{' '}
-            <p className="bar-spacing">
-              {gamelog.clockedBefore ? 'Yes' : 'No'}
-            </p>
-          </div>
-          <div className="base-info">
-            {/* TODO: move this to the css file? */}
-            <table style={{ border: '1px solid black' }}>
-              <thead>
-                <tr>
-                  <th>Start Date</th>
-                  <th>Finish Date</th>
-                </tr>
-              </thead>
-              <tr>
-                <td>{gamelog.startDate}</td>
-                <td>{gamelog.finishDate}</td>
-              </tr>
-            </table>
-            {/* TODO: move this to the css file? */}
-            <table style={{ border: '1px solid black' }}>
-              <thead>
-                <tr>
-                  <th>Estimated Playtime</th>
-                  <th>Actual Playtime</th>
-                </tr>
-                <tr>
-                  <td>{gamelog.playtimeEstimate}</td>
-                  <td>{gamelog.playtimeFinal}</td>
-                </tr>
-              </thead>
-            </table>
+          <div className="game-info-container">
+            <h2 className="game-title">{gamelog.game}</h2>
+            <div className="game-details">
+              <div className="base-info">
+                <div className="info-row">
+                  <span className="info-label">GameID:</span>
+                  <span>{gamelog.id}</span>
+                </div>
+                <div className="info-row">
+                  <span className="info-label">Played on:</span>
+                  <span>{gamelog.platform}</span>
+                </div>
+                <div className="info-row">
+                  <span className="info-label">Previously played:</span>
+                  <span>{gamelog.playedBefore ? 'Yes' : 'No'}</span>
+                </div>
+                <div className="info-row">
+                  <span className="info-label">Previously clocked:</span>
+                  <span>{gamelog.clockedBefore ? 'Yes' : 'No'}</span>
+                </div>
+              </div>
+              <div className="base-info">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Start Date</th>
+                      <th>Finish Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{gamelog.startDate}</td>
+                      <td>{gamelog.finishDate}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Estimated Playtime</th>
+                      <th>Actual Playtime</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{gamelog.playtimeEstimate}</td>
+                      <td>{gamelog.playtimeFinal}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
           <div>
-            <h3>Review:</h3>
-            {/* TODO: move this to the css file? */}
-            <table style={{ border: '1px solid black' }}>
-              <thead>
-                <tr>
-                  <th>Gameplay</th>
-                  <th>Story</th>
-                  <th>Graphics</th>
-                  <th>Performance</th>
-                  <th>Fun</th>
-                  <th>TOTAL</th>
-                </tr>
-                <tr>
-                  <td>{gamelog.gameplayRating}</td>
-                  <td>{gamelog.storyRating}</td>
-                  <td>{gamelog.graphicsRating}</td>
-                  <td>{gamelog.performanceRating}</td>
-                  <td>{gamelog.funRating}</td>
-                  <td>{gamelog.totalRating}</td>
-                </tr>
-              </thead>
-            </table>
-            <h4>Reflections: </h4> <p>{gamelog.finalThoughts}</p>
-            <h4>Star Rating: </h4> <p>{gamelog.finalRating}</p>
+            <hr className="mini-separator" />
+            <h3 className="center">Review:</h3>
+            <div className="table-container">
+              <table className="centered-table">
+                <thead>
+                  <tr>
+                    <th>Gameplay</th>
+                    <th>Story</th>
+                    <th>Graphics</th>
+                    <th>Performance</th>
+                    <th>Fun</th>
+                    <th>TOTAL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{gamelog.gameplayRating}</td>
+                    <td>{gamelog.storyRating}</td>
+                    <td>{gamelog.graphicsRating}</td>
+                    <td>{gamelog.performanceRating}</td>
+                    <td>{gamelog.funRating}</td>
+                    <td>{gamelog.totalRating}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr className="mini-separator" />
+            <h3 className="spacing">Reflections: </h3>{' '}
+            <p className="reflection">{gamelog.finalThoughts}</p>
+            <hr className="mini-separator" />
+            <h3 className="spacing">Star Rating: </h3>{' '}
+            <p className="spacing">{gamelog.finalRating} / 5</p>
           </div>
+          <hr className="separator" />
         </div>
       ))}
-      <hr />
     </>
   )
 }
