@@ -28,10 +28,12 @@ function DeleteGame() {
 
   return (
     <>
-      <h1>Delete a Game</h1>
+      <h1 className="subheading">Delete a Game</h1>
+      <hr className="mini-separator" />
       <form className="form" onSubmit={onSubmit} aria-label="Delete a Game">
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="gameId">Game ID</label>
+          <br />
           <input
             className="form_input"
             type="number"
@@ -41,9 +43,11 @@ function DeleteGame() {
             onChange={onChange}
           />
         </div>
-        <button type="submit" className="button-primary">
-          Delete Game
-        </button>
+        <div className="center label-spacing">
+          <button type="submit" className="button-primary">
+            Delete Game
+          </button>
+        </div>
       </form>
     </>
   )

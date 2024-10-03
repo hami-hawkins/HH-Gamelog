@@ -56,10 +56,12 @@ function RateGame() {
 
   return (
     <div>
-      <h1>Rate a Game</h1>
+      <h1 className="subheading">Rate a Game</h1>
+      <hr className="mini-separator" />
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="game">Game Name: </label>
+          <br />
           <input
             type="text"
             name="game"
@@ -68,8 +70,9 @@ function RateGame() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="playtimeFinal">Playtime (Final): </label>
+          <br />
           <input
             type="text"
             name="playtimeFinal"
@@ -78,8 +81,9 @@ function RateGame() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="gameplayRating">Gameplay / 10: </label>
+          <br />
           <input
             type="number"
             name="gameplayRating"
@@ -90,8 +94,9 @@ function RateGame() {
             max="10"
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="storyRating">Story / 10: </label>
+          <br />
           <input
             type="number"
             name="storyRating"
@@ -102,8 +107,9 @@ function RateGame() {
             max="10"
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="graphicsRating">Graphics / 10: </label>
+          <br />
           <input
             type="number"
             name="graphicsRating"
@@ -114,8 +120,9 @@ function RateGame() {
             max="10"
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="performanceRating">Performance / 10: </label>
+          <br />
           <input
             type="number"
             name="performanceRating"
@@ -126,8 +133,9 @@ function RateGame() {
             max="10"
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="funRating">Fun / 10: </label>
+          <br />
           <input
             type="number"
             name="funRating"
@@ -138,8 +146,9 @@ function RateGame() {
             max="10"
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="finalRating">Final Rating / 5: </label>
+          <br />
           <input
             type="number"
             name="finalRating"
@@ -150,8 +159,9 @@ function RateGame() {
             max="5"
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="finalThoughts">Reflections: </label>
+          <br />
           <input
             type="text"
             name="finalThoughts"
@@ -160,7 +170,9 @@ function RateGame() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Submit rating</button>
+        <div className="center label-spacing">
+          <button type="submit">Submit rating</button>
+        </div>
       </form>
     </div>
   )

@@ -10,10 +10,15 @@ function App() {
         <h1>My Gamelog</h1>
       </header>
       <section className="main">
+        <hr className="separator" />
         <Gamelog />
+        <hr className="separator" />
         <AddGame />
+        <hr className="separator" />
         <RateGame />
+        <hr className="separator" />
         <DeleteGame />
+        <hr className="separator" />
       </section>
     </div>
   )

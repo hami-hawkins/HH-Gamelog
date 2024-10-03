@@ -66,10 +66,12 @@ function AddGame() {
 
   return (
     <>
-      <h1>Add a new Game</h1>
+      <h1 className="subheading">Add a Game</h1>
+      <hr className="mini-separator" />
       <form className="form" onSubmit={onSubmit} aria-label="Add a Game">
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="game">Game: </label>
+          <br />
           <input
             className="form_input"
             type="text"
@@ -78,8 +80,20 @@ function AddGame() {
             value={formValues.game}
             onChange={onChange}
           />
+          <div className="center label-spacing">
+            <label htmlFor="platform">Platform: </label>
+            <br />
+            <input
+              className="form_input"
+              type="text"
+              name="platform"
+              id="platform"
+              value={formValues.platform}
+              onChange={onChange}
+            />
+          </div>
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="played_before">Played before? </label>
           <input
             className="form_input"
@@ -90,7 +104,7 @@ function AddGame() {
             onChange={onCheckBoxChange}
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="clocked_before">Clocked before? </label>
           <input
             className="form_input"
@@ -101,19 +115,9 @@ function AddGame() {
             onChange={onCheckBoxChange}
           />
         </div>
-        <div>
-          <label htmlFor="platform">Platform: </label>
-          <input
-            className="form_input"
-            type="text"
-            name="platform"
-            id="platform"
-            value={formValues.platform}
-            onChange={onChange}
-          />
-        </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="start_date">Start Date: </label>
+          <br />
           <input
             className="form_input"
             type="text"
@@ -123,8 +127,9 @@ function AddGame() {
             onChange={onChange}
           />
         </div>
-        <div>
+        <div className="center label-spacing">
           <label htmlFor="playtime_estimate">Estimated Playtime:</label>
+          <br />
           <input
             className="form_input"
             type="text"
@@ -134,9 +139,9 @@ function AddGame() {
             onChange={onChange}
           />
         </div>
-        <button type="submit" className="button-primary">
-          Add Game
-        </button>
+        <div className="center label-spacing">
+          <button type="submit">Add Game</button>
+        </div>
       </form>
     </>
   )

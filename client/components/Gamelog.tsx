@@ -43,8 +43,8 @@ function Gamelog() {
                     <tr>
                       <td>{gamelog.id}</td>
                       <td>{gamelog.platform}</td>
-                      <td>{gamelog.playedBefore}</td>
-                      <td>{gamelog.clockedBefore}</td>
+                      <td>{gamelog.playedBefore ? 'Yes' : 'No'}</td>
+                      <td>{gamelog.clockedBefore ? 'Yes' : 'No'}</td>
                       <td>{gamelog.startDate}</td>
                       <td>{gamelog.finishDate}</td>
                       <td>{gamelog.playtimeEstimate}</td>

@@ -43,7 +43,7 @@ body {
 
 .game-title {
   flex: 0 0 auto;
-  padding-right: 20px;
+  padding: 0 0 0 30px;
 }
 
 .game-details {
@@ -130,4 +130,22 @@ h2 {
   font-size: 40px;
   color: rgb(216, 0, 0);
   text-decoration: underline;
+}
+
+.form_input {
+  align-content: center;
+}
+
+.button-primary {
+  text-align: center;
+}
+
+.label-spacing {
+  padding: 14px 0 0 0;
+}
+
+.subheading {
+  text-align: center;
+  color: rgb(216, 0, 0);
+  font-size: 40px;
 }
