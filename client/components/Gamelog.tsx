@@ -26,47 +26,27 @@ function Gamelog() {
             <h2 className="game-title">{gamelog.game}</h2>
             <div className="game-details">
               <div className="base-info">
-                <div className="info-row">
-                  <span className="info-label">GameID:</span>
-                  <span>{gamelog.id}</span>
-                </div>
-                <div className="info-row">
-                  <span className="info-label">Played on:</span>
-                  <span>{gamelog.platform}</span>
-                </div>
-                <div className="info-row">
-                  <span className="info-label">Previously played:</span>
-                  <span>{gamelog.playedBefore ? 'Yes' : 'No'}</span>
-                </div>
-                <div className="info-row">
-                  <span className="info-label">Previously clocked:</span>
-                  <span>{gamelog.clockedBefore ? 'Yes' : 'No'}</span>
-                </div>
-              </div>
-              <div className="base-info">
                 <table>
                   <thead>
                     <tr>
+                      <th>Game ID</th>
+                      <th>Platform</th>
+                      <th>Played Before</th>
+                      <th>Clocked Before</th>
                       <th>Start Date</th>
                       <th>Finish Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{gamelog.startDate}</td>
-                      <td>{gamelog.finishDate}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table>
-                  <thead>
-                    <tr>
                       <th>Estimated Playtime</th>
                       <th>Actual Playtime</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <td>{gamelog.id}</td>
+                      <td>{gamelog.platform}</td>
+                      <td>{gamelog.playedBefore}</td>
+                      <td>{gamelog.clockedBefore}</td>
+                      <td>{gamelog.startDate}</td>
+                      <td>{gamelog.finishDate}</td>
                       <td>{gamelog.playtimeEstimate}</td>
                       <td>{gamelog.playtimeFinal}</td>
                     </tr>
